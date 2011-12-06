@@ -1,0 +1,20 @@
+* Fonts
+    Handle the specification not via a string, but with sizes, etc.
+    Map family/face  appropriately to wxWidgets.
+
+
+Fix the fonts and ascent/descent.
+
+Make RwxLoadFont behave as it should and not short circuited just
+for compilation purposes.
+
+Add locator back.
+
+
+Set the pen in the DC each time we change it.
+Same for brush.
+
+Keep the pens and brushes fixed across calls,
+i.e. not on the stack.
+
+

@@ -1,0 +1,20 @@
+AC_INIT(DESCRIPTION)
+
+if test -z "${WX_CONFIG}" ; then
+   AC_PATH_PROG(WX_CONFIG, wx-config)
+fi
+
+if test -z "${WX_CONFIG}" ; then
+  echo "Cannot find wx-config. Please add the directory containing it to your path or set the enviroment variable WX_CONFIG to the fully qualified name of the executable"
+  exit 2
+fi
+
+WX_CPPFLAGS=`wx-config --cflags`
+WX_LIBS=`wx-config --libs`
+
+AC_SUBST(WX_CONFIG)
+AC_SUBST(WX_CPPFLAGS)
+AC_SUBST(WX_LIBS)
+
+
+AC_OUTPUT(src/Makevars)

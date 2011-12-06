@@ -1,0 +1,100 @@
+Clipping is not working for, e.g. 
+  hist(...)
+  points(density(...))
+
+Killing the window via the frame buttons causes R to crash
+  We shouldn't be involved here. Get the Destory and events right.
+
+<lattice>
+In the lattice example
+
+  no text in the panel titles.
+    WX_Text not getting called for these unless canClip is set.
+    Issue with clipping, see GEText and clipText in engine.c
+
+    When setting the brush, make certain to reset it to 
+
+
+ Everything on Y scale is too low:
+    labels on horizontal (top and bottom) too low
+        lattice labels in the tick marks
+
+    alignment of labels on vertical axis too low.
+  See the computations in WX_Text.
+
+
+   These are the same on the Gtk 1 device at least.
+</lattice>
+
+Rotated text needs to be aligned properly on vertical axis.
+   Approximately correct for 0 and 90 degrees.
+
+
+Fonts.
+
+locator
+
+Fix up the embedded widget.
+  * Basic setup is fine.
+  * But need to figure out the drawing context (wxDC) and when it 
+       is being destroyed and when we need a new one.
+     There may be memory leaks.
+
+  * <Done>Need to determine the size of the widget when we plot to it
+      the first time when it is embedded or, preferably, determine
+      the size from an event  when it is shown/displayed/realized.
+      Even with calls to RESET_SIZE doesn't do it. Need to catch the
+      realization event.
+
+      call RESET_SIZE() in wxDeviceDriver() for embedded case.
+
+
+Resize events need to tell R about the new size.
+  Needs to be faster.
+
+use a pixmap to draw or a double-buffered wxDC type.
+
+
+Mouse actions. 
+  canGenMouseDown, ...
+
+
+Mixing x11 and wxWidgets  causes grief
+
+  plot(1:10, font = 3)
+  library(RwxWidgets);  .Call("R_wxWidgets_wxInitialize"); library(RwxDevice);
+  wx()
+  plot(1:10, font = 3)
+  .Call("R_wxWidgets_init", "R")
+
+     Error: unimplemented type 'any' in 'eval'
+
+  
+
+
+######################################################################################
+
+connect the event loop on X11 at least.
+  use gtk on X11.
+  Can we detect how wxWidgets was compiled?
+
+
+
+######################################################################################
+Done:
+
+Circle - find out why the radius is 0.
+  set the cra in the wxDeviceDriver correctly
+
+canClip  - 
+ set to TRUE but then lots of problems.
+ add the clipping ability in wxDeviceDriver back.
+    turned it on but the contents of the plot don't appear.
+
+ clipping region is initially and frequently after that set
+ to negative left side, e.g. -261.***
+
+
+
+caHAdj is 0 - correct?
+  Same as devGTK2

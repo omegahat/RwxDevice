@@ -1,0 +1,4 @@
+WX_CONFIG=@WX_CONFIG@
+PKG_CPPFLAGS=@WX_CPPFLAGS@ -I../../RwxWidgets/src -I${R_HOME}/src/include
+# hard code location of RwxWidgets source code.
+PKG_LIBS=@WX_LIBS@

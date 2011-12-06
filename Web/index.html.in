@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>RwxDevice</title>
+<link rel=stylesheet href="../OmegaTech.css" >
+</head>
+
+<body>
+<h1>The RwxDevice Package</h1>
+<p align="right">Recent release: <a href="@TAR_FILE@">@TAR_FILE@</a></p>
+<p align="right">@DATE@</p>
+
+This package provides an R graphics device that draws plots
+on the screen using an wxWindow.
+It is in its early stage, however, 
+it will provide a platform-independent graphics device.
+Additionally, it can be embedded into other widgets
+an so allows embedding R graphics into more complex GUIs
+ranging from scrolled devices, notebooks and more complex 
+See <a href="../RwxWidgets">RwxWidgets</a>
+for more information on creating GUIs in R using
+wxWidgets.
+
+<h2>Download</h2>
+
+<a href="@TAR_FILE@">@TAR_FILE@</a>
+
+
+<h2>Issues to be fixed</h2>
+<dl>
+  <dt> Need to sort out the fonts and MetricInfo for proper
+       positioning of text. 
+  <dd>
+
+  <dt> Adding wxWidgets to the R event loop (or vice verse)
+  <dd>
+</dl>
+
+<hr>
+<address><a href="http://www.stat.ucdavis.edu/~duncan">Duncan Temple Lang</a>
+<a href=mailto:duncan@wald.ucdavis.edu>&lt;duncan@wald.ucdavis.edu&gt;</a></address>
+<!-- hhmts start -->
+Last modified: Sun Dec 10 08:23:38 PST 2006
+<!-- hhmts end -->
+</body> </html>

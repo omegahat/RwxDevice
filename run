@@ -1,0 +1,54 @@
+library(RwxWidgets)
+   # Initialize before loading RwxDevice as otherwise that package
+   # will provide its own IMPLEMENT_APP which will get called.
+.Call("R_wxWidgets_wxInitialize")
+
+library(RwxDevice)
+
+
+window = RFrame("My Graphics Device", size = as.integer(c(700, 700)))
+canvas = RwxCanvas(window)
+window$Show()
+asWxDevice(canvas)
+
+############################
+
+library(RwxWidgets)
+   # Initialize before loading RwxDevice as otherwise that package
+   # will provide its own IMPLEMENT_APP which will get called.
+.Call("R_wxWidgets_wxInitialize")
+
+library(RwxDevice)
+
+
+
+
+wx()
+plot(1:10)
+.Call("R_wxWidgets_init", "R")
+
+
+library(RwxWidgets);  .Call("R_wxWidgets_wxInitialize"); library(RwxDevice);
+wx()
+library(lattice); d = data.frame(x = runif(300), y = runif(300), type = rep(factor(c("A", "B", "C")), 100)); xyplot(y ~ x | type, d)
+.Call("R_wxWidgets_init", "R")
+
+
+library(lattice)
+states <- data.frame(state.x77,
+                      state.name = dimnames(state.x77)[[1]], 
+	              state.region = state.region) 
+xyplot(Murder ~ Population | state.region, data = states, 
+       groups = state.name, 
+       panel = function(x, y, subscripts, groups)  
+       ltext(x = x, y = y, label = groups[subscripts], cex=1,
+             fontfamily = "HersheySans"))
+
+
+
+ Depth <- equal.count(quakes$depth, number=8, overlap=.1)
+ xyplot(lat ~ long | Depth, data = quakes)
+ update(trellis.last.object(),
+        strip = strip.custom(strip.names = TRUE, strip.levels = TRUE),
+        par.strip.text = list(cex = 0.75),
+        aspect = "iso")

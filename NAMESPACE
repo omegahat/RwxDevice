@@ -1,0 +1,7 @@
+useDynLib(RwxDevice, R_create_wxDevice, R_as_wxDevice, R_RwxCanvas_new, R_set_DeviceNumber, R_get_DeviceNumber)
+export(wx, asWxDevice, RwxCanvas, RwxCanvas_IsRDevice)
+
+import(RwxWidgets)
+
+exportClass("RwxCanvas")
+exportMethods("$")

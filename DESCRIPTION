@@ -1,0 +1,8 @@
+Package: RwxDevice
+Version: 0.2-1
+Title: R Graphics device using wxWidgets
+Description: A graphics device that displays the contents of a plot
+  on a wxWidget canvas.
+Author: Duncan Temple Lang <duncan@wald.ucdavis.edu>
+Maintainer: Duncan Temple Lang <duncan@wald.ucdavis.edu>
+License: GNU LGPL (same as wxWidgets).
